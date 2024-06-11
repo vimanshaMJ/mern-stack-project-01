@@ -1,3 +1,10 @@
 // install express
 npm install express 
 npm install cors
+
+// install nodemn node.js runner
+npm i nodemon -g  
+( -g: can use globaly for every projects )
+
+//run server
+nodemon server.js
