@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 export default function Users() {
   const users = [
     { id: 1, name: "Vimansha" },
-    { id: 2, name: "Vinoth" },
+    { id: 2, name: "Gihan" },
     { id: 3, name: "ABCDE" },
   ];
 
