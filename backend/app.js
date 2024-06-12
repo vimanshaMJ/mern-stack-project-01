@@ -13,6 +13,7 @@ app.use(
 app.use(express.json());
 
 //rest APIs for controller functions: to get data from controller to app.js
+
 app.get("/users", (req, res) => {
   controller.getUsers((req, res, next) => {
     res.send();

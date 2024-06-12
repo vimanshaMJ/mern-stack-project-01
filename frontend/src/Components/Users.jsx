@@ -6,6 +6,7 @@ import Axios from "axios";
 
 export default function Users() {
   const [users, setUsers] = useState([]); //should pass an array initially coz we set a arrau for users
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     getUsers();
@@ -23,6 +24,23 @@ export default function Users() {
       });
   };
 
+  const createUser = (data) => {
+    setSubmitted(true);
+
+    const payload = {
+      id: data.id,
+      name: data.name,
+    };
+
+    Axios.post("http://localhost:3001/api/createuser", payload)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => {
+        console.log("Axios error: ", error);
+      });
+  };
+
   return (
     <Box
       sx={{
@@ -31,7 +49,8 @@ export default function Users() {
         marginTop: "100px",
       }}
     >
-      <UserForm />
+      {/* call createUser() function in userform */}
+      <UserForm createUser={createUser} submitted={submitted} />
       <UsersTable rows={users} />
     </Box>
   );
