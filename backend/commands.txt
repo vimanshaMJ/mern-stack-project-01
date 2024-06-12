@@ -8,3 +8,7 @@ npm i nodemon -g
 
 //run server
 nodemon server.js
+
+// work with mongoDB
+//install node.js driver for mongoDB
+npm i mongoose
