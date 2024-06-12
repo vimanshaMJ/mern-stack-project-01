@@ -15,10 +15,10 @@ const UserForm = (props) => {
         display: "block",
       }}
     >
-      <Grid item sx={12}>
+      <Grid item xs={12}>
         <Typography
           component={"h1"}
-          xs={{
+          sx={{
             colors: "black",
           }}
         >
