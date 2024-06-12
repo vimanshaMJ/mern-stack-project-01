@@ -10,6 +10,9 @@ const host = "127.0.0.1";
 //install mongoose
 const mongoose = require("mongoose");
 
+//import router
+const router = require("./router");
+
 app.use(cors());
 app.use(express.json());
 
@@ -29,3 +32,6 @@ connect();
 const server = app.listen(port, host, () => {
   console.log(`Node server is listening to ${server.address().port} `);
 });
+
+// midleware of router
+app.use("/api", router); // /api: every paths will be domain/api/...
