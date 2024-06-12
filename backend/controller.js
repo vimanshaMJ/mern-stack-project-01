@@ -38,7 +38,7 @@ const updateUser = (req, res, next) => {
     });
 };
 
-const deleteUser = (rew, res, next) => {
+const deleteUser = (req, res, next) => {
   const id = req.body.id;
   User.deleteOne({ id: id })
     .then((response) => {
