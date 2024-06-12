@@ -12,17 +12,31 @@ app.use(
 );
 app.use(express.json());
 
-//rest APIs for controller functions
+//rest APIs for controller functions: to get data from controller to app.js
 app.get("/users", (req, res) => {
-  controller.getUsers((users) => {
-    res.send(users);
+  controller.getUsers((req, res, next) => {
+    res.send();
   });
 });
 
-app.get("/user", (req, res) => {
-  const id = req.query.id;
-  controller.getUsersById(id, (user) => {
-    res.send(user);
+//create a user by post method
+app.post("/createuser", (req, res) => {
+  controller.addUser(req.body, (callback) => {
+    res.send();
+  });
+});
+
+//update user
+app.post("/updateuser", (req, res) => {
+  controller.updateUser(req.body, (callback) => {
+    res.send(callback); //here return the callback to know the data was updated or not and exactly which data was updated
+  });
+});
+
+//delete user
+app.post("/deleteuser", (req, res) => {
+  controller.deleteUser(req.body, (callback) => {
+    res.send(callback); //here return the callback to know the which data was deleted
   });
 });
 
