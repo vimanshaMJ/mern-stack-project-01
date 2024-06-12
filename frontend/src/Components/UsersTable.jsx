@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "@mui/material";
 
-const UsersTable = ({ rows, selectedUser }) => {
+const UsersTable = ({ rows, selectedUser, deleteUser }) => {
   return (
     <TableContainer
       component={Paper} // table is floted as a paper, so we can handle that easily
@@ -45,7 +45,10 @@ const UsersTable = ({ rows, selectedUser }) => {
                   >
                     Update
                   </Button>
-                  <Button sx={{ margin: "0px 10px" }} onClick={() => {}}>
+                  <Button
+                    sx={{ margin: "0px 10px" }}
+                    onClick={() => deleteUser({ id: row.id })}
+                  >
                     Delete
                   </Button>
                 </TableCell>

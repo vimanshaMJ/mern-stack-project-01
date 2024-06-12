@@ -64,6 +64,16 @@ export default function Users() {
       });
   };
 
+  const deleteUser = (data) => {
+    Axios.post("http://localhost:3001/api/deleteuser", data)
+      .then(() => {
+        getUsers();
+      })
+      .catch((error) => {
+        console.log("Axios error: ", error);
+      });
+  };
+
   return (
     <Box
       sx={{
@@ -86,6 +96,9 @@ export default function Users() {
           setSelectedUser(data);
           setIsEdit(true);
         }}
+        deleteUser={(data) =>
+          window.confirm("Are you sure?") && deleteUser(data)
+        }
       />
     </Box>
   );
